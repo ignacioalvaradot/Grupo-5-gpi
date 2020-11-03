@@ -70,6 +70,7 @@ useEffect(() => {
     const borrarElemento = (id) => {
         axios.delete(`http://localhost:8080/fichaPaciente/${id}`)
         console.log(id)
+        
     }
     
 
