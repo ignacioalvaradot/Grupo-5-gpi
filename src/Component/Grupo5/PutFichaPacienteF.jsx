@@ -99,21 +99,42 @@ export default function PutFichaPacienteF() {
     };
     const [value, setValue] = React.useState('Controlled')
 
+   
+    
+    const [data, setData] = useState([]);
 
+    const goLogIn = () => {
+        let data = {
+            rut: rut,
+            domicilio: domicilio,
+            comuna: comuna,
+            estado_civil: estado_civil,
+            prevision: prevision,
+            motivo_consulta: motivo_consulta,
+            telefono: telefono,
+            fecha_ingreso: fecha_ingreso
 
-    // const Listeilor = () => {
-    //     axios.get(`http://localhost:8080/fichaPaciente/`)
-    //         .then(res => {
-    //             console.log("console: ", res)
-    //         })
-    //     //history.push('Listeilor')
-    // }
-    useEffect(() => {
+        }
+        axios.post(`http://localhost:8080/fichaPaciente/`, data) // callback( [] , false)
+            .then((response) => {
+                if (response.data.state) {
+                    setOpen(true);
+                    setBanderaAlerta(true);
+                    setBanderaAlertaOpcion(true)
+                } else {
+                    setOpen(true);
+                    setBanderaAlerta(true);
+                    setBanderaAlertaOpcion(false)
+                }
+                console.log(response)
 
-        peticionGet(id)
-        // eslint-disable-next-line
-      }, []); 
-     const [data, setData] = useState([]);
+            }).finally(() => { console.log("termina") }).catch((e) => {
+                console.log(e);
+                setOpen(true);
+                setBanderaAlerta(true);
+                setBanderaAlertaOpcion(false)
+            });
+    }
 
      const peticionGet = (id) => {
          axios.get(`http://localhost:8080/fichaPaciente/${id}`).then(response => {
