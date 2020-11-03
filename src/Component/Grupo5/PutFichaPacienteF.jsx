@@ -111,22 +111,7 @@ export default function PutFichaPacienteF() {
 
 
 
-    // const Listeilor = () => {
-    //     axios.get(`http://localhost:8080/fichaPaciente/`)
-    //         .then(res => {
-    //             console.log("console: ", res)
-    //         })
-    //     //history.push('Listeilor')
-    // }
-
-    // const peticionGet = () => {
-    //     axios.get(`http://localhost:8080/fichaPaciente/`).then(response => {
-    //         setData(response.data.data);
-
-    //     }).catch(error => {
-    //         console.log(error.message);
-    //     })
-    // }
+   
     
     const [data, setData] = useState([]);
 
